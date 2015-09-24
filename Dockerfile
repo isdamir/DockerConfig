@@ -19,8 +19,8 @@ RUN apt-get install -y cpp gcc g++ build-essential
 RUN apt-get install -y python-pip python-dev
 RUN sudo pip install --upgrade&&pip install supervisor
 
-##安装Go1.5.1
-RUN wget http://www.golangtc.com/static/go/go1.5beta1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5beta1.linux-amd64.tar.gz&&rm -rf go1.5beta1.linux-amd64.tar.gz
+##安装Go1.5.1 国内可翻墙
+RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz&&rm -rf go1.5.1.linux-amd64.tar.gz
 #创建用户连接的Data目录
 RUN mkdir /home/damir/data
 VOLUME "/home/damir/data"
