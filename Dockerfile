@@ -13,7 +13,7 @@ RUN useradd damir
 RUN echo "damir   ALL=(ALL)       ALL" >> /etc/sudoers 
 
 #安转全部需要的软件
-RUN apt-get install -y gcc wget curl nginx python python-pip python-dev build-essential
+RUN apt-get install -y wget curl nginx python python-pip
 RUN pip install --upgrade pip&&pip install supervisor
 
 ##安装Go1.5.1
