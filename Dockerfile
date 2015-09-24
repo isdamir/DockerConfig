@@ -13,8 +13,9 @@ RUN useradd damir
 RUN echo "damir   ALL=(ALL)       ALL" >> /etc/sudoers 
 
 #安转全部需要的软件
-RUN apt-get install -y wget curl nginx python python-pip libpython-dev
-RUN pip install --upgrade&&pip install supervisor
+RUN apt-get install -y wget curl nginx python
+RUn apt-get install -y python-pip python-dev build-essential
+RUN sudo pip install --upgrade&&pip install supervisor
 
 ##安装Go1.5.1
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz&&rm -rf go1.5.1.linux-amd64.tar.gz
