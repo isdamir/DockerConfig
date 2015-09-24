@@ -1,7 +1,7 @@
 #VERSION 0.0.1
 FROM ubuntu 
 MAINTAINER Damir "iscode@qq.com"
-RUN echo "deb http://ubuntu.srt.cn/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list 
+RUN echo "deb http://mirrors.sohu.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list 
 RUN apt-get update 
 RUN apt-get upgrade -y
 RUN apt-get install -y openssh-server sudo
