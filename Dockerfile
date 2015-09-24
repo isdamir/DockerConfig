@@ -1,7 +1,7 @@
 #VERSION 0.0.1
 FROM ubuntu 
 MAINTAINER Damir "iscode@qq.com"
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list 
+RUN echo "deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list 
 RUN apt-get update 
 RUN apt-get upgrade -y
 RUN apt-get install -y openssh-server sudo
@@ -13,8 +13,7 @@ RUN useradd damir
 RUN echo "damir   ALL=(ALL)       ALL" >> /etc/sudoers 
 
 #安转全部需要的软件
-RUN apt-get install wget curl nginx
-RUN apt-get install python python-pip python-dev build-essential
+RUN apt-get install -y wget curl nginx python python-pip python-dev build-essential
 RUN pip install --upgrade pip&&pip install supervisor
 
 ##安装Go1.5.1
