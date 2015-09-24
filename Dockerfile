@@ -13,7 +13,7 @@ RUN useradd damir
 RUN echo "damir   ALL=(ALL)       ALL" >> /etc/sudoers 
 
 #安转全部需要的软件
-RUN apt-get install -y wget curl nginx python libc-dev gcc cpp g++ libc
+RUN apt-get install -y wget curl nginx python libc-dev gcc cpp g++
 RUn apt-get install -y python-pip python-dev build-essential
 RUN sudo pip install --upgrade&&pip install supervisor
 
