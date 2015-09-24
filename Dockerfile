@@ -20,7 +20,7 @@ RUN apt-get install -y python-pip python-dev
 RUN sudo pip install --upgrade&&pip install supervisor
 
 ##安装Go1.5.1
-RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz&&rm -rf go1.5.1.linux-amd64.tar.gz
+RUN wget http://www.golangtc.com/static/go/go1.5beta1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5beta1.linux-amd64.tar.gz&&rm -rf go1.5beta1.linux-amd64.tar.gz
 
 # 设置环境变量
 RUN echo "GOROOT=/usr/local/go">> /etc/environment&&"GOPATH=/home/damir/data/go">> /etc/environment&&"PATH=$PATH:$GOROOT/bin">> /etc/environment
