@@ -9,7 +9,7 @@ RUN apt-get install -y openssh-server sudo
 RUN mkdir -p /var/run/sshd
 #RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 #增加用户
-RUN useradd damir
+RUN adduser damir
 RUN echo "damir   ALL=(ALL)       ALL" >> /etc/sudoers 
 
 #安转全部需要的软件
