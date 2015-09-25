@@ -42,4 +42,4 @@ EXPOSE 80
 CMD sudo ln /home/damir/data/supervisord.conf  /etc/supervisord.conf&&sudo ln -sf /home/damir/data/site-enable //etc/nginx/sites-available/site-enable&&sudo ln -sf /home/damir/data/site-enable /etc/nginx/sites-enabled/site-enable
 
 #用supervisord来启动需要的程序
-ENTRYPOINT ["/usr/local/bin/supervisord"]
+ENTRYPOINT /usr/local/bin/supervisord
