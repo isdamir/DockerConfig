@@ -18,6 +18,9 @@ RUN apt-get install -y linux-headers-$(uname -r)
 RUN apt-get install -y cpp gcc g++ build-essential
 RUN apt-get install -y python-pip python-dev
 RUN pip install --upgrade pip&&pip install supervisor
+#拷贝文件
+ADD start.sh /home/damir/start.sh
+RUN chmod 777 /home/damir/start.sh
 
 ##安装Go1.5.1 国内可翻墙
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz&&rm -rf go1.5.1.linux-amd64.tar.gz
@@ -33,8 +36,7 @@ USER damir
 #将连接用私钥部署
 RUN mkdir -p ~/.ssh&&chmod 700 ~/.ssh
 RUN echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCoiwf1WLCytdjpdJ/eUXZhqT7vhQtHFUMr7vwyVOTxVvgcVuP8bUjSclFIJJw/YH0q3JIeeJdwN99hKT07Tx4YoTFUhcuSE6DMBLaapVtO1oW7zcyTcRC5yln7IBK/HEaynZ3HFwZVwuk9GJvP/+SoXJfrdPSLqc7dQTFKt3VW7hwAeDZ9ozSkY3Qj/huWqaXIvzwsfRZXxqLoGF8g611VQQgAWs6aopBlPaKp+B1kfQjcQJaWidmHqdsOMWPB7wC7AtHyTaAJ63N+4spdrNYO/9cHtyBj93YpvTATmb3HIKcJ5l0DdDg0useZcX9DRJT/FF0OMRPm0HlJzlZ3Eoj9 damir@DamirdeMacBook-Pro.local">>~/.ssh/authorized_keys
-#拷贝文件
-ADD start.sh /home/damir/start.sh
+
 # 容器需要开放SSH 22端口
 EXPOSE 22
 # 容器需要开放80端口
