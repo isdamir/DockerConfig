@@ -41,4 +41,4 @@ EXPOSE 22
 EXPOSE 80
 
 #用supervisord来启动需要的程序
-ENTRYPOINT ["/usr/local/bin/supervisord"]
+ENTRYPOINT /home/damir/start.sh
