@@ -12,12 +12,12 @@ RUN mkdir -p /var/run/sshd
 RUN adduser damir
 RUN echo "damir   ALL=(ALL)       ALL" >> /etc/sudoers 
 
-#安转全部需要的软件
+#安装全部需要的软件
 RUN apt-get install -y wget curl nginx python
 RUN apt-get install -y linux-headers-$(uname -r)
 RUN apt-get install -y cpp gcc g++ build-essential
 RUN apt-get install -y python-pip python-dev
-RUN sudo pip install --upgrade pip&&sudo pip install supervisor
+RUN pip install --upgrade pip&&pip install supervisor
 
 ##安装Go1.5.1 国内可翻墙
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz&&rm -rf go1.5.1.linux-amd64.tar.gz
@@ -39,7 +39,7 @@ EXPOSE 22
 EXPOSE 80
 
 #建立连接,使用shell form 防止参数附加
-CMD sudo ln /home/damir/data/supervisord.conf  /etc/supervisord.conf&&sudo ln -sf /home/damir/data/site-enable //etc/nginx/sites-available/site-enable&&sudo ln -sf /home/damir/data/site-enable /etc/nginx/sites-enabled/site-enable
+CMD sudo ln /home/damir/data/supervisord.conf  /usr/local/etc/supervisord.conf&&sudo ln -sf /home/damir/data/site-enable //etc/nginx/sites-available/site-enable&&sudo ln -sf /home/damir/data/site-enable /etc/nginx/sites-enabled/site-enable
 
 #用supervisord来启动需要的程序
 ENTRYPOINT /usr/local/bin/supervisord
