@@ -25,7 +25,10 @@ RUN chmod 777 /home/damir/start.sh
 ##安装Go1.5.1 国内可翻墙
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz&&rm -rf go1.5.1.linux-amd64.tar.gz
 #目录
-RUN mkdir /home/damir/go&&mkdir /home/damir/data&&chmod 777 /home/damir/go&&chmod 777 /home/damir/data
+RUN mkdir /home/damir/go
+RUN mkdir /home/damir/data
+RUN chmod 777 /home/damir/go
+RUN chmod 777 /home/damir/data
 # 设置环境变量
 ENV "GOROOT" "/usr/local/go"
 ENV "GOPATH" "/home/damir/data/go"
