@@ -38,8 +38,8 @@ EXPOSE 22
 # 容器需要开放80端口
 EXPOSE 80
 
-#建立连接
-CMD ["sudo ln /home/damir/data/supervisord.conf  /etc/supervisord.conf&&sudo ln -sf /home/damir/data/site-enable //etc/nginx/sites-available/site-enable&&sudo ln -sf /home/damir/data/site-enable /etc/nginx/sites-enabled/site-enable"]
+#建立连接,使用shell form 防止参数附加
+CMD sudo ln /home/damir/data/supervisord.conf  /etc/supervisord.conf&&sudo ln -sf /home/damir/data/site-enable //etc/nginx/sites-available/site-enable&&sudo ln -sf /home/damir/data/site-enable /etc/nginx/sites-enabled/site-enable
 
 #用supervisord来启动需要的程序
-ENTRYPOINT ["/usr/local/bin/supervisord"] 
+ENTRYPOINT ["/usr/local/bin/supervisord"]
