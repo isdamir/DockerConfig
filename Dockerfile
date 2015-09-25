@@ -31,7 +31,7 @@ RUN chmod 777 /home/damir/go
 RUN chmod 777 /home/damir/data
 # 设置环境变量
 ENV "GOROOT" "/usr/local/go"
-ENV "GOPATH" "/home/damir/data/go"
+ENV "GOPATH" "/home/damir/go"
 ENV "PATH" "$PATH:$GOROOT/bin"
 # 切换RUN指令的用户
 USER damir
