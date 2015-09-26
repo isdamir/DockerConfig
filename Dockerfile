@@ -43,4 +43,4 @@ EXPOSE 22
 EXPOSE 80
 
 #用supervisord来启动需要的程序
-CMD /home/damir/start.sh
+CMD ["sudo","/home/damir/start.sh"]
