@@ -24,6 +24,8 @@ ADD supervisord.conf /usr/local/etc/supervisord.conf
 RUN chmod 777 /usr/local/etc/supervisord.conf
 RUN chmod 777 /home/damir/start.sh
 
+RUN echo "daemon off;">>/etc/nginx/nginx.conf
+
 ##安装Go1.5.1 国内可翻墙
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz&&rm -rf go1.5.1.linux-amd64.tar.gz
 #目录
