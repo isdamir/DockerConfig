@@ -42,5 +42,6 @@ EXPOSE 22
 # 容器需要开放80端口
 EXPOSE 80
 
+USER root
 #用supervisord来启动需要的程序
 CMD /home/damir/start.sh
