@@ -9,7 +9,8 @@ RUN apt-get install -y openssh-server sudo
 RUN mkdir -p /var/run/sshd
 #RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 #配置rsync
-RUN echo "uid = root \ngid = root \nuse chroot = yes \nmax connections = 4 \nstrict modes =no \nport = 873" >>/etc/rsyncd.conf
+RUN echo "secrets file = /etc/rsyncd.secrets \nread only = no \nwrite only = no \nlist = yes \nuid = root \ngid = root \nmax connections = 5 \nhosts allow = * \nhosts deny = * \nuse chroot = no \nlog file = /var/log/rsyncd.log \npid file = /var/run/rsyncd.pid" >>/etc/rsyncd.conf
+RUN echo "damir:damir">>/etc/rsyncd.secrets
 #增加用户
 RUN adduser damir
 RUN echo "damir ALL=(ALL) NOPASSWD: ALL " >> /etc/sudoers 
