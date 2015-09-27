@@ -21,7 +21,7 @@ RUN pip install --upgrade pip&&pip install supervisor
 #拷贝文件
 ADD supervisord.conf /usr/local/etc/supervisord.conf
 RUN chmod 777 /usr/local/etc/supervisord.conf
-RUN chmod 777 /home/damir/start.sh
+
 #修改nginx.conf
 RUN echo "daemon off;">>/etc/nginx/nginx.conf
 RUN sed -i s^/etc/nginx/sites-enabled/*;^/etc/nginx/sites-enabled/*;\ninclude /home/damir/data/site/*;^g" etc/nginx/nginx.conf
