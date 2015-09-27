@@ -24,7 +24,7 @@ RUN chmod 777 /usr/local/etc/supervisord.conf
 
 #修改nginx.conf
 RUN echo "daemon off;">>/etc/nginx/nginx.conf
-RUN sed -i s^/etc/nginx/sites-enabled/*;^/etc/nginx/sites-enabled/*;\ninclude /home/damir/data/site/*;^g" etc/nginx/nginx.conf
+RUN sed -i '/\/etc\/nginx\/sites-enabled\/\*\;/a\include \/home\/damir\/data\/site\/\*\;' /etc/nginx/nginx.conf
 
 ##安装Go1.5.1 国内可翻墙
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&&tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz&&rm -rf go1.5.1.linux-amd64.tar.gz
