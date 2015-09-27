@@ -10,7 +10,7 @@ RUN mkdir -p /var/run/sshd
 #RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 #配置rsync
 RUN echo "secrets file = /etc/rsyncd.secrets \nread only = no \nwrite only = no \nlist = yes \nuid = root \ngid = root \nmax connections = 5 \nhosts allow = * \nhosts deny = * \nuse chroot = no \nlog file = /var/log/rsyncd.log \npid file = /var/run/rsyncd.pid" >>/etc/rsyncd.conf
-RUN echo "damir:damir">>/etc/rsyncd.secrets
+run echo >>/etc/rsyncd.secrets
 #增加用户
 RUN adduser damir
 RUN echo "damir ALL=(ALL) NOPASSWD: ALL " >> /etc/sudoers 
@@ -45,9 +45,7 @@ RUN mkdir -p ~/.ssh&&chmod 700 ~/.ssh
 RUN echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCoiwf1WLCytdjpdJ/eUXZhqT7vhQtHFUMr7vwyVOTxVvgcVuP8bUjSclFIJJw/YH0q3JIeeJdwN99hKT07Tx4YoTFUhcuSE6DMBLaapVtO1oW7zcyTcRC5yln7IBK/HEaynZ3HFwZVwuk9GJvP/+SoXJfrdPSLqc7dQTFKt3VW7hwAeDZ9ozSkY3Qj/huWqaXIvzwsfRZXxqLoGF8g611VQQgAWs6aopBlPaKp+B1kfQjcQJaWidmHqdsOMWPB7wC7AtHyTaAJ63N+4spdrNYO/9cHtyBj93YpvTATmb3HIKcJ5l0DdDg0useZcX9DRJT/FF0OMRPm0HlJzlZ3Eoj9 damir@DamirdeMacBook-Pro.local">>~/.ssh/authorized_keys
 
 USER root
-# 容器需要开放SSH 22端口
-EXPOSE 22
-# 容器需要开放80端口
-EXPOSE 80
+# 容器需要开放端口
+EXPOSE 22 80 873
 #用supervisord来启动需要的程序
 CMD /usr/local/bin/supervisord
