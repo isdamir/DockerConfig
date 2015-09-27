@@ -13,7 +13,7 @@ RUN adduser damir
 RUN echo "damir ALL=(ALL) NOPASSWD: ALL " >> /etc/sudoers 
 
 #安装全部需要的软件
-RUN apt-get install -y wget curl nginx python
+RUN apt-get install -y wget curl nginx python rsync
 RUN apt-get install -y linux-headers-$(uname -r)
 RUN apt-get install -y cpp gcc g++ build-essential
 RUN apt-get install -y python-pip python-dev
